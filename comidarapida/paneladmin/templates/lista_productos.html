@@ -1,0 +1,80 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Productos</title>
+
+    <link rel="stylesheet" href="{% static 'css/productos.css' %}">
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">
+            ComidaRapida
+        </div>
+
+        <a href="{% url 'agregar_producto' %}" class="nav-btn">
+            + Nuevo Producto
+        </a>
+    </nav>
+
+    <div class="contenedor">
+
+        <h1 class="titulo">
+            Catálogo de Productos
+        </h1>
+
+        {% if productos %}
+
+        <div class="productos">
+
+            {% for producto in productos %}
+
+            <div class="card">
+
+                {% if producto.image %}
+                <img src="{{ producto.image.url }}" alt="{{ producto.nombre }}">
+                {% endif %}
+
+                <div class="info">
+
+                    <div class="categoria">
+                        {{ producto.categoria }}
+                    </div>
+
+                    <div class="nombre">
+                        {{ producto.nombre }}
+                    </div>
+
+                    <div class="precio">
+                        ${{ producto.precio }}
+                    </div>
+
+                    <div class="stock">
+                        Stock: {{ producto.stock }}
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        {% else %}
+
+        <div class="sin-productos">
+            No existen productos registrados.
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</body>
+</html>

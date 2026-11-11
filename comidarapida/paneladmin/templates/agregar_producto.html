@@ -1,0 +1,45 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Producto</title>
+
+    <link rel="stylesheet" href="{% static 'css/agregar_producto.css' %}">
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">
+            ComidaRapida
+        </div>
+
+        <a href="{% url 'lista_productos' %}" class="nav-btn">
+            Ver Productos
+        </a>
+    </nav>
+
+    <div class="contenedor">
+        <div class="form-card">
+
+            <h1>Agregar Producto</h1>
+
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                {{ form.as_p }}
+
+                <button type="submit" class="btn-guardar">
+                    Guardar Producto
+                </button>
+            </form>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
