@@ -1,0 +1,105 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Ventas</title>
+
+    <link rel="stylesheet" href="{% static 'css/lista_ventas.css' %}">
+</head>
+
+<body>
+
+    <nav>
+
+        <div class="logo">
+            🍔 FastFood POS
+        </div>
+
+        <div class="nav-links">
+
+            <a href="{% url 'lista_productos' %}" class="nav-btn">
+                Productos
+            </a>
+
+
+            <a href="{% url 'ver_carrito' %}" class="nav-btn">
+                Carrito
+            </a>
+
+            <a href="{% url 'lista_ventas' %}" class="nav-btn">
+                Ventas
+            </a>
+
+            <a href="{% url 'logout' %}" class="nav-btn">
+                Salir
+            </a>
+
+        </div>
+
+    </nav>
+
+    <div class="contenedor">
+
+        <h1 class="titulo">
+            Historial de Ventas
+        </h1>
+
+        {% if ventas %}
+
+        <table class="tabla">
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Vendedor</th>
+                    <th>Fecha</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {% for venta in ventas %}
+
+                <tr>
+
+                    <td>
+                        #{{ venta.id }}
+                    </td>
+
+                    <td>
+                        {{ venta.vendedor.username }}
+                    </td>
+
+                    <td>
+                        {{ venta.fecha }}
+                    </td>
+
+                    <td class="precio">
+                        ${{ venta.total }}
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+        {% else %}
+
+        <div class="sin-ventas">
+            No existen ventas registradas.
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</body>
+
+</html>

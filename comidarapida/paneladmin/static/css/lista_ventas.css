@@ -1,0 +1,98 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#f8f9fa;
+}
+
+/* NAVBAR */
+
+nav{
+    background:#ff7b00;
+    padding:15px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    color:white;
+    font-weight:bold;
+    font-size:24px;
+}
+
+.nav-links{
+    display:flex;
+    gap:10px;
+}
+
+.nav-btn{
+    text-decoration:none;
+    color:white;
+    background:#e66b00;
+    padding:10px 15px;
+    border-radius:8px;
+}
+
+.nav-btn:hover{
+    background:#cc5f00;
+}
+
+/* CONTENIDO */
+
+.contenedor{
+    width:90%;
+    max-width:1200px;
+    margin:30px auto;
+}
+
+.titulo{
+    margin-bottom:20px;
+    color:#343a40;
+}
+
+/* TABLA */
+
+.tabla{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 3px 10px rgba(0,0,0,.08);
+}
+
+.tabla th{
+    background:#ff7b00;
+    color:white;
+    padding:15px;
+    text-align:left;
+}
+
+.tabla td{
+    padding:15px;
+    border-bottom:1px solid #eee;
+}
+
+.tabla tr:hover{
+    background:#fff5eb;
+}
+
+.precio{
+    color:#28a745;
+    font-weight:bold;
+}
+
+/* SIN REGISTROS */
+
+.sin-ventas{
+    background:white;
+    padding:40px;
+    text-align:center;
+    border-radius:10px;
+    box-shadow:0 3px 10px rgba(0,0,0,.08);
+}

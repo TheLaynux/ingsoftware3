@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: #f8f9fa;
+}
+
+nav {
+    background: #ff7b00;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-btn {
+    text-decoration: none;
+    color: white;
+    background: #e56e00;
+    padding: 10px 15px;
+    border-radius: 8px;
+}
+
+.nav-btn:hover {
+    background: #cc5f00;
+}
+
+.contenedor {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+.titulo {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.tabla-carrito {
+    width: 100%;
+    background: white;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.tabla-carrito th {
+    background: #ff7b00;
+    color: white;
+    padding: 15px;
+}
+
+.tabla-carrito td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.resumen {
+    margin-top: 20px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: right;
+}
+
+.botones {
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.btn-confirmar {
+    background: #28a745;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+}
+
+.btn-confirmar:hover {
+    background: #218838;
+}
+
+.btn-vaciar {
+    background: #dc3545;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+}
+
+.btn-vaciar:hover {
+    background: #c82333;
+}
+
+.btn-eliminar {
+    background: #dc3545;
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+}
+
+.btn-eliminar:hover {
+    background: #c82333;
+}
+
+.carrito-vacio {
+    background: white;
+    text-align: center;
+    padding: 50px;
+    border-radius: 15px;
+}
+
+.carrito-vacio h2 {
+    font-size: 60px;
+    margin-bottom: 15px;
+}
+
+.btn-volver {
+    display: inline-block;
+    margin-top: 20px;
+    background: #ff7b00;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+}
+
+.btn-volver:hover {
+    background: #cc5f00;
+}

@@ -13,13 +13,36 @@
 <body>
 
     <nav>
+
         <div class="logo">
-            ComidaRapida
+            FastFood
         </div>
 
-        <a href="{% url 'agregar_producto' %}" class="nav-btn">
-            + Nuevo Producto
-        </a>
+        <div class="nav-links">
+
+            <a href="{% url 'lista_productos' %}" class="nav-btn">
+                Productos
+            </a>
+            <a href="{% url 'lista_ventas' %}" class="nav-btn">
+                Ventas
+            </a>
+
+            <a href="{% url 'ver_carrito' %}" class="nav-btn">
+                Carrito
+            </a>
+
+            {% if user.perfil.rol == 'administrador' %}
+            <a href="{% url 'agregar_producto' %}" class="nav-btn">
+                Nuevo Producto
+            </a>
+            {% endif %}
+
+            <a href="{% url 'logout' %}" class="nav-btn">
+                Cerrar Sesión
+            </a>
+
+        </div>
+
     </nav>
 
     <div class="contenedor">
@@ -58,6 +81,26 @@
                         Stock: {{ producto.stock }}
                     </div>
 
+                    <div class="acciones">
+
+                        <a href="{% url 'agregar_carrito' producto.id %}" class="btn btn-carrito">
+                            Añadir al carrito
+                        </a>
+
+                        {% if user.perfil.rol == 'administrador' %}
+
+                        <a href="{% url 'editar_producto' producto.id %}" class="btn btn-editar">
+                            Editar
+                        </a>
+
+                        <a href="{% url 'eliminar_producto' producto.id %}" class="btn btn-eliminar">
+                            Eliminar
+                        </a>
+
+                        {% endif %}
+
+                    </div>
+
                 </div>
 
             </div>
@@ -75,6 +118,29 @@
         {% endif %}
 
     </div>
+    {% if messages %}
+    <div class="toast-container">
+
+        {% for message in messages %}
+        <div class="toast">
+            ✅ {{ message }}
+        </div>
+        {% endfor %}
+        <script>
+            setTimeout(function () {
+
+                const toast = document.querySelector('.toast-container');
+
+                if (toast) {
+                    toast.style.display = 'none';
+                }
+
+            }, 3000);
+        </script>
+
+    </div>
+    {% endif %}
 
 </body>
+
 </html>

@@ -1,0 +1,131 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+
+    <link rel="stylesheet" href="{% static 'css/carrito.css' %}">
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">
+            🍔 FastFood POS
+        </div>
+
+        <div class="nav-links">
+            <a href="{% url 'lista_productos' %}" class="nav-btn">
+                Productos
+            </a>
+
+            <a href="{% url 'logout' %}" class="nav-btn">
+                Cerrar Sesión
+            </a>
+        </div>
+    </nav>
+
+    <div class="contenedor">
+
+        <h1 class="titulo">
+            Carrito de Compras
+        </h1>
+
+        {% if productos %}
+
+        <table class="tabla-carrito">
+
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Subtotal</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {% for item in productos %}
+
+                <tr>
+
+                    <td>{{ item.producto.nombre }}</td>
+
+                    <td>
+                        ${{ item.producto.precio }}
+                    </td>
+
+                    <td>
+                        {{ item.cantidad }}
+                    </td>
+
+                    <td>
+                        ${{ item.subtotal }}
+                    </td>
+
+                    <td>
+                        <a href="{% url 'eliminar_del_carrito' item.producto.id %}"
+                           class="btn-eliminar">
+                            Eliminar
+                        </a>
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+        <div class="resumen">
+
+            <h2>
+                Total: ${{ total }}
+            </h2>
+
+            <div class="botones">
+
+                <a href="{% url 'vaciar_carrito' %}"
+                   class="btn-vaciar">
+                    Vaciar Carrito
+                </a>
+
+                <a href="{% url 'confirmar_venta' %}"
+                   class="btn-confirmar">
+                    Confirmar Venta
+                </a>
+
+            </div>
+
+        </div>
+
+        {% else %}
+
+        <div class="carrito-vacio">
+
+            <h2>🛒</h2>
+
+            <p>
+                El carrito está vacío.
+            </p>
+
+            <a href="{% url 'lista_productos' %}"
+               class="btn-volver">
+                Ver Productos
+            </a>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</body>
+</html>
